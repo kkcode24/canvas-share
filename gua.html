@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			#myCanvas {
+				cursor: pointer;
+				margin:50px 400px;
+				box-shadow: 6px 9px 80px 13px rgba(0,0,0,.65);
+				transition:all 1s linear;
+			}
+			img{
+				position:absolute;
+				top:50px;
+				left:400px;
+
+				width: 500px;
+				height: 500px;
+
+				z-index:-10;
+			}
+		</style>
+		<title>刮刮乐</title>
+	</head>
+	<body>
+		<img src="img/1.jpg">
+		<canvas id="myCanvas" width="500" height="500"></canvas>
+	</body>
+	<script src="js/jquery-2.2.4.min.js"></script>
+	<script src="js/guaguale.js"></script>
+</html>
