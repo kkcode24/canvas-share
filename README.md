@@ -88,7 +88,7 @@
 - color:绘制时要使用的颜色
 
 **发散偏移量的图**
-![发散偏移量的图](img/redial.png)
+![发散偏移量的图](img/radial.png)
 
 ## 绘制文字
 **填充文字：context.fillText(text,x,y)  **
