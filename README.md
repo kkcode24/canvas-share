@@ -59,7 +59,7 @@
 - straAngle: 开始角度
 - endAngle: 结束角度
 - anticlockwise: 是否逆时针，（true）为逆时针，(false)为顺时针
-![圆弧绘制方向图](http://img.blog.csdn.net/20170219202848731?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbXlfc3R1ZHlfZXZlcnlkYXk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+![圆弧绘制方向图](img/arc.png)
 
 ## 渐变
 ### 线性渐变
@@ -88,7 +88,7 @@
 - color:绘制时要使用的颜色
 
 **发散偏移量的图**
-![发散偏移量的图](http://img.blog.csdn.net/20170219202742793?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbXlfc3R1ZHlfZXZlcnlkYXk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+![发散偏移量的图](img/redial.png)
 
 ## 绘制文字
 **填充文字：context.fillText(text,x,y)  **
@@ -139,11 +139,11 @@ ctx.clearRect(x,y,width,height)
  参数1,2,3,4代表曲线起点和终点之间的两个点坐标,参数5,6代表终点坐标
 
 **二阶贝塞尔动画**
-![二次贝塞尔曲线动画](./640.gif)
+![二次贝塞尔曲线动画](img/640.gif)
 
 **三阶贝塞尔动画**
 
-![三阶贝塞尔动画](./3.gif)
+![三阶贝塞尔动画](img/3.gif)
 
 **贝塞尔曲线**在CSS动画中的有使用，就是在动画的运动过程中，控制速率的变化。
 
