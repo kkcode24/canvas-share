@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>canvas验证码</title>
+	</head>
+		<style type="text/css">
+			body{
+				text-align: center;
+				background: #989997;
+			}
+		</style>
+	<body>
+		<p>点击验证码刷新:</p>
+		<p><input type="text" class="topAlign" id="verify" name="verify" value="" required> <button id="btn">验证</button>
+			<canvas width="100" height="30" id="verifyCanvas"></canvas></p>
+		<script type="text/javascript">
+			var nums = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "A", "B", "C", "D", "E", "F", "G", "H", "I", "G", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "g", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+			var canvas = document.getElementById("verifyCanvas");
+			var context = canvas.getContext("2d");
+					
+			var rand;
+			reset1();
+
+			function reset1() {
+				var rands = [];
+
+				for(var i = 0; i < 4; i++){
+					rands.push(nums[random(0, nums.length - 1)])
+				}
+
+				rand = rands[0] + rands[1] + rands[2] + rands[3];
+				context.clearRect(0, 0, canvas.width, canvas.height);
+				// 创建画布
+				context.fillStyle = "#ffffff";
+				context.fillRect(0, 0, canvas.width, canvas.height);
+				context.beginPath();
+				var i = 0;
+				// 画线  
+				for(i = 0; i < 4; i++) {
+					drawline(canvas, context);
+				}
+
+				// 随机点
+				for(i = 0; i < 50; i++) {
+					drawDot(canvas, context);
+				}
+				
+				// 验证码 
+				context.font = "25px Arial";
+
+				context.save();
+				for(var i = 0; i < 4; i++){
+					context.fillStyle = randomColor();
+					context.fillText(rands[i], (i * 20 + 10), 20);
+					context.rotate(random(-2,2)*Math.PI/180)
+				}
+				context.restore();
+
+			}
+
+			function drawline(canvas, context) {
+				context.moveTo(0, random(0, canvas.height));
+				context.lineTo(canvas.width, random(0, canvas.height));
+				context.lineWidth = 0.5;
+				context.strokeStyle = randomColor();
+				context.stroke();
+			}
+
+			function drawDot(canvas, context) {
+				var px = random(0, canvas.width);
+				var py = random(0, canvas.height);
+				context.moveTo(px, py);
+				context.lineTo(px + 1, py + 1);
+				context.lineWidth = 0.2;
+				context.stroke();
+			}
+
+			function random(min, max) {
+				return Math.floor(Math.random() * (max - min + 1) + min);
+			}
+
+			function randomColor() {
+				return "rgb(" + random(0, 255) + "," + random(0, 255) + "," + random(0, 225) + ")";
+			}
+
+			var btn = document.getElementById("btn");
+			var verify = document.getElementById("verify");
+			var verifyCanvas = document.getElementById("verifyCanvas");
+			verifyCanvas.onclick = reset1
+			btn.onclick = function() {
+				if(verify.value.toUpperCase() == rand.toUpperCase()) {
+					alert("OK!")
+				} else {
+					alert("error")
+				}
+			}
+		</script>
+	</body>
+
+</html>
